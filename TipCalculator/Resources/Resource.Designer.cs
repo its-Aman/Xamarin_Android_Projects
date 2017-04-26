@@ -60,8 +60,17 @@ namespace TipCalculator
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050001
+			public const int Button = 2131034113;
+			
 			// aapt resource value: 0x7f050000
-			public const int MyButton = 2131034112;
+			public const int inputBill = 2131034112;
+			
+			// aapt resource value: 0x7f050002
+			public const int outputTip = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int outputTotal = 2131034115;
 			
 			static Id()
 			{

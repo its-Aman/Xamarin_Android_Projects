@@ -11,21 +11,31 @@ namespace TipCalculator
     [Activity(Label = "TipCalculator", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
         {
-        int count = 1;
+
+            EditText inputBill;
+            Button calculateButton;
+            TextView outputTip;
+            TextView outputTotal;
 
         protected override void OnCreate(Bundle bundle)
             {
-            base.OnCreate(bundle);
-
-            // Set our view from the "main" layout resource
+            base.OnCreate(bundle); 
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            calculateButton = FindViewById<Button>(Resource.Id.Button);
+            inputBill = FindViewById<EditText>(Resource.Id.inputBill);
+            outputTip = FindViewById<TextView>(Resource.Id.outputTip);
+            outputTotal = FindViewById<TextView>(Resource.Id.outputTotal);
 
-            button.Click += delegate
-                { button.Text = string.Format("{0} clicks!", count++); };
+            calculateButton.Click += (sender, e) =>
+            {
+                string text = inputBill.Text;
+                var bill = double.Parse(text);
+                var tip = bill * 0.15;
+                var total = tip + bill;
+                outputTip.Text = tip.ToString();
+                outputTotal.Text = total.ToString();
+            };
             }
         }
     }
